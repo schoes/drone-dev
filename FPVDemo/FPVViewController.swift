@@ -22,6 +22,10 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
     
     @IBOutlet var fpvView: UIView!
     
+    //var mission =  DJIMissionControl();
+    
+   // var wayPointMission = DJIWaypointMission();
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     
@@ -36,6 +40,9 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
         super.viewDidLoad()
         
         DJISDKManager.registerApp(with: self)
+        let extractedExpr: DJIWaypointMissionOperator = DJISDKManager.missionControl()?.waypointMissionOperator();
+        //extractedExpr.load(wayPointMission);
+        //extractedExpr.startMission();
         recordTimeLabel.isHidden = true
     }
 
