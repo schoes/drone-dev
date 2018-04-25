@@ -40,7 +40,7 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
         super.viewDidLoad()
         
         DJISDKManager.registerApp(with: self)
-        let extractedExpr: DJIWaypointMissionOperator = DJISDKManager.missionControl()?.waypointMissionOperator();
+        let extractedExpr: DJIWaypointMissionOperator = DJISDKManager.missionControl()?.activeTrackMissionOperator();
         //extractedExpr.load(wayPointMission);
         //extractedExpr.startMission();
         recordTimeLabel.isHidden = true
