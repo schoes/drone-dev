@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Y5h-KL-TjC">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Y5h-KL-TjC">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,11 +23,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7o-PK-R6D">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="-20" width="667" height="395"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvS-Bv-OaZ">
-                                <rect key="frame" x="254" y="28" width="160" height="21"/>
+                                <rect key="frame" x="254" y="8" width="160" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="VKy-Gc-6tN"/>
                                 </constraints>
@@ -43,9 +44,10 @@
                                             <constraint firstAttribute="width" constant="189" id="VW6-r4-jrR"/>
                                         </constraints>
                                         <segments>
-                                            <segment title="CaptureMode"/>
-                                            <segment title="RecordMode"/>
+                                            <segment title="Camera"/>
+                                            <segment title="Video"/>
                                         </segments>
+                                        <color key="tintColor" red="0.97769470045457985" green="0.99014465342672087" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="workModeSegmentChange:" destination="Y5h-KL-TjC" eventType="valueChanged" id="jzb-2O-Dw7"/>
                                         </connections>
@@ -55,6 +57,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="41" id="nby-a8-xYf"/>
                                         </constraints>
+                                        <color key="tintColor" red="0.97769470049999996" green="0.99014465340000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Start Record">
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -68,6 +71,7 @@
                                             <constraint firstAttribute="width" constant="55" id="U1X-dm-L8Q"/>
                                             <constraint firstAttribute="height" constant="41" id="nPq-D9-sRm"/>
                                         </constraints>
+                                        <color key="tintColor" red="0.97769470045457985" green="0.99014465342672087" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Capture">
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -76,7 +80,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="hfh-HM-hBW" firstAttribute="leading" secondItem="jaP-D2-yJL" secondAttribute="trailing" constant="35" id="2DG-fJ-SKc">
                                         <variation key="widthClass=compact" constant="179"/>

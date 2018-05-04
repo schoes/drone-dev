@@ -18,6 +18,8 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
     
     @IBOutlet var recordButton: UIButton!
     
+    @IBOutlet var inputIP:UITextInput!
+    
     @IBOutlet var workModeSegmentControl: UISegmentedControl!
     
     @IBOutlet var fpvView: UIView!
@@ -40,7 +42,7 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
         super.viewDidLoad()
         
         DJISDKManager.registerApp(with: self)
-        let extractedExpr: DJIWaypointMissionOperator = DJISDKManager.missionControl()?.activeTrackMissionOperator();
+        //let _: DJIWaypointMissionOperator = (DJISDKManager.missionControl()?.waypointMissionOperator())!;
         //extractedExpr.load(wayPointMission);
         //extractedExpr.startMission();
         recordTimeLabel.isHidden = true
@@ -108,7 +110,9 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
     func showAlertViewWithTitle(title: String, withMessage message: String) {
     
        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let input = UITextInput(message:"Set IP to debug")
        let okAction = UIAlertAction.init(title:"OK", style: UIAlertActionStyle.default, handler: nil)
+        alert.addTextField(configurationHandler: <#T##((UITextField) -> Void)?##((UITextField) -> Void)?##(UITextField) -> Void#>)
       alert.addAction(okAction)
       self.present(alert, animated: true, completion: nil)
     
@@ -153,6 +157,7 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
         if (error != nil) {
             message = "Register app failed! Please enter your app key and check the network."
         } else {
+            DJISDKManager.enableBridgeMode(withBridgeAppIP: "192.168.1.118")
             DJISDKManager.startConnectionToProduct()
         }
         
