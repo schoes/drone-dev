@@ -18,7 +18,6 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
     
     @IBOutlet var recordButton: UIButton!
     
-    @IBOutlet var inputIP:UITextInput!
     
     @IBOutlet var workModeSegmentControl: UISegmentedControl!
     
@@ -110,9 +109,9 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
     func showAlertViewWithTitle(title: String, withMessage message: String) {
     
        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let input = UITextInput(message:"Set IP to debug")
+
        let okAction = UIAlertAction.init(title:"OK", style: UIAlertActionStyle.default, handler: nil)
-        alert.addTextField(configurationHandler: <#T##((UITextField) -> Void)?##((UITextField) -> Void)?##(UITextField) -> Void#>)
+    
       alert.addAction(okAction)
       self.present(alert, animated: true, completion: nil)
     
