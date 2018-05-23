@@ -8,10 +8,14 @@ import DJISDK
 import VideoPreviewer
 
 
-class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerDelegate, DJICameraDelegate {
-    
+class MainController: UIViewController,  DJIVideoFeedListener, DJISDKManagerDelegate, DJICameraDelegate {
+    var flightController: DJIFlightController!;
+    var aircraft:DJIAircraft!;
     var isRecording : Bool!
     
+    @IBAction func takeOff(_ sender: UIButton) {
+        flightController.startTakeoff();
+    }
     @IBOutlet var recordTimeLabel: UILabel!
     
     @IBOutlet var captureButton: UIButton!
@@ -23,9 +27,6 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
     
     @IBOutlet var fpvView: UIView!
     
-    //var mission =  DJIMissionControl();
-    
-   // var wayPointMission = DJIWaypointMission();
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -39,11 +40,10 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         DJISDKManager.registerApp(with: self)
-        //let _: DJIWaypointMissionOperator = (DJISDKManager.missionControl()?.waypointMissionOperator())!;
-        //extractedExpr.load(wayPointMission);
-        //extractedExpr.startMission();
+
+        
         recordTimeLabel.isHidden = true
     }
 
@@ -121,6 +121,8 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
     func productConnected(_ product: DJIBaseProduct?) {
         
         NSLog("Product Connected")
+        aircraft = DJISDKManager.product() as! DJIAircraft;
+        flightController = aircraft.flightController!;
         
         if (product != nil) {
             let camera = self.fetchCamera()
@@ -156,7 +158,7 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
         if (error != nil) {
             message = "Register app failed! Please enter your app key and check the network."
         } else {
-            DJISDKManager.enableBridgeMode(withBridgeAppIP: "192.168.1.71")
+            DJISDKManager.enableBridgeMode(withBridgeAppIP: "192.168.1.54")
             DJISDKManager.startConnectionToProduct()
         }
         

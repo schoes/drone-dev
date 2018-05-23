@@ -13,7 +13,7 @@
         <!--FPV View Controller-->
         <scene sceneID="h7h-rr-pPd">
             <objects>
-                <viewController title="FPV View Controller" id="Y5h-KL-TjC" customClass="FPVViewController" customModule="FPVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="FPV View Controller" id="Y5h-KL-TjC" customClass="MainController" customModule="FPVDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oFq-A1-eWo"/>
                         <viewControllerLayoutGuide type="bottom" id="eiZ-M7-BsQ"/>
@@ -52,19 +52,6 @@
                                             <action selector="workModeSegmentChange:" destination="Y5h-KL-TjC" eventType="valueChanged" id="jzb-2O-Dw7"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaP-D2-yJL">
-                                        <rect key="frame" x="148" y="8" width="186" height="41"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="41" id="nby-a8-xYf"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.97769470049999996" green="0.99014465340000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Start Record">
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="recordAction:" destination="Y5h-KL-TjC" eventType="touchUpInside" id="I3i-uj-bhM"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-S3-wDx">
                                         <rect key="frame" x="53" y="8" width="55" height="41"/>
                                         <constraints>
@@ -77,6 +64,29 @@
                                         </state>
                                         <connections>
                                             <action selector="captureAction:" destination="Y5h-KL-TjC" eventType="touchUpInside" id="sl3-3F-qVr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Op-AZ-NaS">
+                                        <rect key="frame" x="317" y="8" width="60" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Take Off">
+                                            <color key="titleColor" red="0.97769470049999996" green="0.99014465340000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="takeOff:" destination="Y5h-KL-TjC" eventType="touchUpInside" id="Unv-13-0BL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaP-D2-yJL">
+                                        <rect key="frame" x="116" y="8" width="186" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="nby-a8-xYf"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.97769470049999996" green="0.99014465340000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Start Record">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="recordAction:" destination="Y5h-KL-TjC" eventType="touchUpInside" id="I3i-uj-bhM"/>
                                         </connections>
                                     </button>
                                 </subviews>
