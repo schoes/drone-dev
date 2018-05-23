@@ -24,50 +24,23 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7o-PK-R6D">
                                 <rect key="frame" x="0.0" y="-20" width="667" height="395"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Uzh-Xp-Sey">
+                                        <rect key="frame" x="8" y="25" width="651" height="309"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Dki-Lf-Z91" appends="YES" id="MSm-WS-zOX"/>
+                                        </connections>
+                                    </mapView>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvS-Bv-OaZ">
-                                <rect key="frame" x="254" y="8" width="160" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="VKy-Gc-6tN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nm0-qQ-Lf7">
                                 <rect key="frame" x="0.0" y="318" width="667" height="57"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hfh-HM-hBW">
-                                        <rect key="frame" x="433" y="15" width="189" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="189" id="VW6-r4-jrR"/>
-                                        </constraints>
-                                        <segments>
-                                            <segment title="Camera"/>
-                                            <segment title="Video"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.97769470045457985" green="0.99014465342672087" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="workModeSegmentChange:" destination="Y5h-KL-TjC" eventType="valueChanged" id="jzb-2O-Dw7"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-S3-wDx">
-                                        <rect key="frame" x="53" y="8" width="55" height="41"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="55" id="U1X-dm-L8Q"/>
-                                            <constraint firstAttribute="height" constant="41" id="nPq-D9-sRm"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.97769470045457985" green="0.99014465342672087" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Capture">
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="captureAction:" destination="Y5h-KL-TjC" eventType="touchUpInside" id="sl3-3F-qVr"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Op-AZ-NaS">
-                                        <rect key="frame" x="317" y="8" width="60" height="41"/>
+                                        <rect key="frame" x="36" y="8" width="60" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Take Off">
                                             <color key="titleColor" red="0.97769470049999996" green="0.99014465340000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -76,58 +49,25 @@
                                             <action selector="takeOff:" destination="Y5h-KL-TjC" eventType="touchUpInside" id="Unv-13-0BL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaP-D2-yJL">
-                                        <rect key="frame" x="116" y="8" width="186" height="41"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="41" id="nby-a8-xYf"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.97769470049999996" green="0.99014465340000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Start Record">
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zek-Iz-VUu">
+                                        <rect key="frame" x="131" y="13" width="103" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Add Waypoints"/>
                                         <connections>
-                                            <action selector="recordAction:" destination="Y5h-KL-TjC" eventType="touchUpInside" id="I3i-uj-bhM"/>
+                                            <action selector="addWayPointsAction:" destination="Y5h-KL-TjC" eventType="touchUpInside" id="cLu-Tj-L8f"/>
                                         </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKU-Wj-gdQ">
+                                        <rect key="frame" x="277" y="13" width="112" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Clear Waypoints"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="hfh-HM-hBW" firstAttribute="leading" secondItem="jaP-D2-yJL" secondAttribute="trailing" constant="35" id="2DG-fJ-SKc">
-                                        <variation key="widthClass=compact" constant="179"/>
-                                        <variation key="heightClass=compact-widthClass=compact" constant="99"/>
-                                    </constraint>
                                     <constraint firstAttribute="height" constant="57" id="B1Q-nK-9SU"/>
-                                    <constraint firstItem="hfh-HM-hBW" firstAttribute="leading" secondItem="jaP-D2-yJL" secondAttribute="trailing" constant="168" id="F5p-TN-hXg"/>
-                                    <constraint firstItem="jaP-D2-yJL" firstAttribute="top" secondItem="Nm0-qQ-Lf7" secondAttribute="top" constant="8" id="KEg-wm-f6R"/>
-                                    <constraint firstItem="hfh-HM-hBW" firstAttribute="top" secondItem="Nm0-qQ-Lf7" secondAttribute="top" constant="15" id="pLX-z7-2xT"/>
-                                    <constraint firstItem="jaP-D2-yJL" firstAttribute="leading" secondItem="lgV-S3-wDx" secondAttribute="trailing" priority="500" constant="113" id="qBA-uy-aL2">
-                                        <variation key="widthClass=compact" constant="59"/>
-                                        <variation key="heightClass=compact-widthClass=compact" constant="40"/>
-                                    </constraint>
-                                    <constraint firstItem="lgV-S3-wDx" firstAttribute="top" secondItem="Nm0-qQ-Lf7" secondAttribute="top" constant="8" id="tcF-qh-TuC"/>
-                                    <constraint firstItem="lgV-S3-wDx" firstAttribute="leading" secondItem="Nm0-qQ-Lf7" secondAttribute="leading" priority="499" constant="89" id="te0-gJ-QKX">
-                                        <variation key="widthClass=compact" constant="53"/>
-                                    </constraint>
-                                    <constraint firstAttribute="trailing" secondItem="hfh-HM-hBW" secondAttribute="trailing" constant="52" id="yNK-Ky-hEg">
-                                        <variation key="widthClass=compact" constant="45"/>
-                                    </constraint>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="2DG-fJ-SKc"/>
-                                        <exclude reference="F5p-TN-hXg"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="2DG-fJ-SKc"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="F5p-TN-hXg"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -136,24 +76,23 @@
                             <constraint firstItem="Nm0-qQ-Lf7" firstAttribute="leading" secondItem="AFE-JX-zxr" secondAttribute="leadingMargin" constant="-20" id="Cqp-wA-g8J"/>
                             <constraint firstItem="e7o-PK-R6D" firstAttribute="top" secondItem="oFq-A1-eWo" secondAttribute="bottom" constant="-20" id="DSj-OG-wWP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="e7o-PK-R6D" secondAttribute="trailing" constant="-20" id="GnX-4y-paQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="WvS-Bv-OaZ" secondAttribute="trailing" constant="233" id="P7h-Rc-Lak"/>
-                            <constraint firstItem="WvS-Bv-OaZ" firstAttribute="leading" secondItem="AFE-JX-zxr" secondAttribute="leadingMargin" constant="234" id="Z23-cu-uOF"/>
                             <constraint firstItem="eiZ-M7-BsQ" firstAttribute="top" secondItem="e7o-PK-R6D" secondAttribute="bottom" id="ZUo-e6-gE4"/>
-                            <constraint firstItem="WvS-Bv-OaZ" firstAttribute="top" secondItem="oFq-A1-eWo" secondAttribute="bottom" constant="8" id="btL-2l-hje"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Nm0-qQ-Lf7" secondAttribute="trailing" constant="-20" id="fER-xM-U12"/>
                             <constraint firstItem="eiZ-M7-BsQ" firstAttribute="top" secondItem="Nm0-qQ-Lf7" secondAttribute="bottom" id="p23-fR-GD9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J1c-zF-EhE"/>
                     <connections>
-                        <outlet property="captureButton" destination="lgV-S3-wDx" id="g3v-wR-CIq"/>
                         <outlet property="fpvView" destination="e7o-PK-R6D" id="R78-59-cmA"/>
-                        <outlet property="recordButton" destination="jaP-D2-yJL" id="9tP-s5-pa9"/>
-                        <outlet property="recordTimeLabel" destination="WvS-Bv-OaZ" id="cHr-jx-t8k"/>
-                        <outlet property="workModeSegmentControl" destination="hfh-HM-hBW" id="PGc-bE-vMI"/>
+                        <outlet property="mapView" destination="Uzh-Xp-Sey" id="qAa-QI-vjP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spR-T1-rIm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Dki-Lf-Z91">
+                    <connections>
+                        <action selector="tapedOnMap:" destination="Y5h-KL-TjC" id="sWZ-oe-CHQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="942.27886056971522" y="-248.80000000000001"/>
         </scene>

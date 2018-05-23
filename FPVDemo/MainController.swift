@@ -4,17 +4,29 @@
 //
 
 import UIKit
+import MapKit
 import DJISDK
 import VideoPreviewer
 
 
-class MainController: UIViewController,  DJIVideoFeedListener, DJISDKManagerDelegate, DJICameraDelegate {
+class MainController: UIViewController,  DJIVideoFeedListener, DJISDKManagerDelegate, DJICameraDelegate,MKMapViewDelegate {
     var flightController: DJIFlightController!;
+    var mapController = MapController();
     var aircraft:DJIAircraft!;
-    var isRecording : Bool!
+    var addPointsClicked:Bool!;
+    
+    
+    @IBOutlet weak var mapView: MKMapView!
     
     @IBAction func takeOff(_ sender: UIButton) {
-        flightController.startTakeoff();
+        if(flightController !== nil){
+            flightController.startTakeoff();
+        }
+    }
+    
+    @IBAction func tapedOnMap(_ sender: UITapGestureRecognizer) {
+        let point = sender.location(in:mapView );
+        mapController.addPoint(point: point, mapView: mapView);
     }
     @IBOutlet var recordTimeLabel: UILabel!
     
@@ -40,11 +52,9 @@ class MainController: UIViewController,  DJIVideoFeedListener, DJISDKManagerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        DJISDKManager.registerApp(with: self)
-
         
-        recordTimeLabel.isHidden = true
+        
+        DJISDKManager.registerApp(with: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -121,10 +131,11 @@ class MainController: UIViewController,  DJIVideoFeedListener, DJISDKManagerDele
     func productConnected(_ product: DJIBaseProduct?) {
         
         NSLog("Product Connected")
-        aircraft = DJISDKManager.product() as! DJIAircraft;
-        flightController = aircraft.flightController!;
+      
         
         if (product != nil) {
+            aircraft = DJISDKManager.product() as! DJIAircraft;
+            flightController = aircraft.flightController!;
             let camera = self.fetchCamera()
             if (camera != nil) {
                 camera!.delegate = self
@@ -167,23 +178,6 @@ class MainController: UIViewController,  DJIVideoFeedListener, DJISDKManagerDele
     
     // DJICameraDelegate Method
     func camera(_ camera: DJICamera, didUpdate cameraState: DJICameraSystemState) {
-        self.isRecording = cameraState.isRecording
-        self.recordTimeLabel.isHidden = !self.isRecording
-        
-        self.recordTimeLabel.text = formatSeconds(seconds: cameraState.currentVideoRecordingTimeInSeconds)
-        
-        if (self.isRecording == true) {
-            self.recordButton.setTitle("Stop Record", for: UIControlState.normal)
-        } else {
-            self.recordButton.setTitle("Start Record", for: UIControlState.normal)
-        }
-        
-        //Update UISegmented Control's State
-        if (cameraState.mode == DJICameraMode.shootPhoto) {
-            self.workModeSegmentControl.selectedSegmentIndex = 0
-        } else {
-            self.workModeSegmentControl.selectedSegmentIndex = 1
-        }
         
     }
     
@@ -214,23 +208,6 @@ class MainController: UIViewController,  DJIVideoFeedListener, DJISDKManagerDele
     }
     
     @IBAction func recordAction(_ sender: UIButton) {
-        
-        let camera = self.fetchCamera()
-        if (camera != nil) {
-            if (self.isRecording) {
-                camera?.stopRecordVideo(completion: { (error) in
-                    if (error != nil) {
-                        NSLog("Stop Record Video Error: " + String(describing: error))
-                    }
-                })
-            } else {
-                camera?.startRecordVideo(completion: { (error) in
-                    if (error != nil) {
-                        NSLog("Start Record Video Error: " + String(describing: error))
-                    }
-                })
-            }
-        }
     }
     
     @IBAction func workModeSegmentChange(_ sender: UISegmentedControl) {
