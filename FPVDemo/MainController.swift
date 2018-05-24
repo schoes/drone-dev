@@ -15,7 +15,7 @@ class MainController: UIViewController, DJISDKManagerDelegate,MKMapViewDelegate 
     var aircraft:DJIAircraft!;
     
     
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mkMapView: MKMapView!
     
     @IBAction func takeOff(_ sender: UIButton) {
         if(flightController !== nil){
@@ -24,8 +24,12 @@ class MainController: UIViewController, DJISDKManagerDelegate,MKMapViewDelegate 
     }
     
     @IBAction func tapedOnMap(_ sender: UITapGestureRecognizer) {
-        let point = sender.location(in:mapView );
-        mapController.addPoint(point: point, mapView: mapView);
+        let point = sender.location(in:mkMapView );
+        let addedPoint = mapController.addPoint(point: point, mapView: mkMapView);
+        let pin = MKPointAnnotation();
+        pin.coordinate = addedPoint;
+        
+        mkMapView.addAnnotation(pin);
     }
     @IBOutlet var recordTimeLabel: UILabel!
     

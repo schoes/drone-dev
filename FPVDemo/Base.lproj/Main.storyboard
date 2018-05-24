@@ -76,7 +76,7 @@
                     <navigationItem key="navigationItem" id="J1c-zF-EhE"/>
                     <connections>
                         <outlet property="fpvView" destination="e7o-PK-R6D" id="R78-59-cmA"/>
-                        <outlet property="mapView" destination="Uzh-Xp-Sey" id="qAa-QI-vjP"/>
+                        <outlet property="mkMapView" destination="Uzh-Xp-Sey" id="Tn1-iE-pLm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spR-T1-rIm" userLabel="First Responder" sceneMemberID="firstResponder"/>

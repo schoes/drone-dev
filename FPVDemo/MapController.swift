@@ -13,12 +13,13 @@ class MapController{
     var waypoints:Array<CLLocation> = [];
 
 
-    func addPoint(point:CGPoint,mapView:MKMapView){
+    func addPoint(point:CGPoint,mapView:MKMapView)-> CLLocationCoordinate2D{
         let coordinate = mapView.convert(point, toCoordinateFrom: mapView);
         let location =  CLLocation.init(latitude: coordinate.latitude, longitude: coordinate.longitude);
         
         waypoints.append(location);
         NSLog("Location added:",location);
+        return coordinate;
       
     }
     
