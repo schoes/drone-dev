@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--FPV View Controller-->
+        <!--MainController-->
         <scene sceneID="h7h-rr-pPd">
             <objects>
-                <viewController title="FPV View Controller" id="Y5h-KL-TjC" customClass="MainController" customModule="FPVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MainController" id="Y5h-KL-TjC" customClass="MainController" customModule="FPVDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oFq-A1-eWo"/>
                         <viewControllerLayoutGuide type="bottom" id="eiZ-M7-BsQ"/>
@@ -49,16 +49,8 @@
                                             <action selector="takeOff:" destination="Y5h-KL-TjC" eventType="touchUpInside" id="Unv-13-0BL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zek-Iz-VUu">
-                                        <rect key="frame" x="131" y="13" width="103" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Add Waypoints"/>
-                                        <connections>
-                                            <action selector="addWayPointsAction:" destination="Y5h-KL-TjC" eventType="touchUpInside" id="cLu-Tj-L8f"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKU-Wj-gdQ">
-                                        <rect key="frame" x="277" y="13" width="112" height="30"/>
+                                        <rect key="frame" x="130" y="13" width="112" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Clear Waypoints"/>
                                     </button>

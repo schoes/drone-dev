@@ -16,7 +16,10 @@ class MapController{
     func addPoint(point:CGPoint,mapView:MKMapView){
         let coordinate = mapView.convert(point, toCoordinateFrom: mapView);
         let location =  CLLocation.init(latitude: coordinate.latitude, longitude: coordinate.longitude);
+        
         waypoints.append(location);
+        NSLog("Location added:",location);
+      
     }
     
     func cleanAllPointsWithMapView(mapView:MKMapView){
