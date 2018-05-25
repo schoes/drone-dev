@@ -28,17 +28,14 @@ class MainController: UIViewController, DJISDKManagerDelegate,MKMapViewDelegate 
         let addedPoint = mapController.addPoint(point: point, mapView: mkMapView);
         let pin = MKPointAnnotation();
         pin.coordinate = addedPoint;
+        pin.title = String(addedPoint.latitude)
         
         mkMapView.addAnnotation(pin);
     }
-    @IBOutlet var recordTimeLabel: UILabel!
-    
-    @IBOutlet var captureButton: UIButton!
-    
-    @IBOutlet var recordButton: UIButton!
-    
-    
-    @IBOutlet var workModeSegmentControl: UISegmentedControl!
+    @IBAction func clearWaypoints(_ sender: UIButton) {
+        self.mapController.cleanAllPointsWithMapView(mapView: mkMapView)
+    }
+
     
     @IBOutlet var fpvView: UIView!
     
@@ -49,7 +46,18 @@ class MainController: UIViewController, DJISDKManagerDelegate,MKMapViewDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        DJISDKManager.registerApp(with: self)
+        DJISDKManager.registerApp(with: self);
+
+        
+    }
+    
+    func addStaticPoints(mapView:MKMapView){
+        let pin = MKPointAnnotation();
+        pin.coordinate = CLLocationCoordinate2D(latitude: 46.961588, longitude: 7.37184768);
+        
+        
+        
+        mapView.addAnnotation(pin);
     }
     
     override func didReceiveMemoryWarning() {

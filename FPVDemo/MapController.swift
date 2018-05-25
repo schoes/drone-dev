@@ -25,6 +25,7 @@ class MapController{
     
     func cleanAllPointsWithMapView(mapView:MKMapView){
         waypoints.removeAll();
+        mapView.removeAnnotations(mapView.annotations)
     }
     
     func getWayPoints()->Array<CLLocation>{

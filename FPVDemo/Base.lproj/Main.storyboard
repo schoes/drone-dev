@@ -53,6 +53,9 @@
                                         <rect key="frame" x="130" y="13" width="112" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Clear Waypoints"/>
+                                        <connections>
+                                            <action selector="clearWaypoints:" destination="Y5h-KL-TjC" eventType="touchUpInside" id="1vI-LP-1GW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
